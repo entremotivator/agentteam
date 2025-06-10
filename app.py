@@ -105,7 +105,7 @@ if selected_member != st.session_state.last_selected or "messages" not in st.ses
     }]
 
 # Chat UI
-st.title("🤖 Team AI Chatbot")
+st.title("🤖 Team AI VA Chatbot")
 st.markdown(f"**Chatting with:** {selected_member}")
 
 if st.session_state.get("knowledge_base"):
