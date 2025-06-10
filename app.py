@@ -23,7 +23,7 @@ if "team_prompts" not in st.session_state:
     st.session_state.team_prompts = default_team.copy()
 
 # Sidebar — system prompt
-st.sidebar.title("🧠 AI Persona & Team Settings")
+st.sidebar.title("🧠 AI VA Persona & Team Settings")
 
 # Editable team prompts
 st.sidebar.subheader("✏️ Edit Team Member Personas")
