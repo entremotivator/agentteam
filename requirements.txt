@@ -1,0 +1,4 @@
+openai
+langchain
+PyPDF2
+pandas
