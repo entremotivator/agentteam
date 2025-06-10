@@ -7,7 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 # Initialize OpenAI client
 client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
-st.set_page_config(page_title="Team AI Chatbot", layout="wide")
+st.set_page_config(page_title="AIVA Team Chat", layout="wide")
 
 # Default team member personas
 default_team = {
