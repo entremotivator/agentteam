@@ -1,11 +1,11 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 import tempfile
-from langchain.document_loaders import TextLoader, CSVLoader, PyPDFLoader
+from langchain_community.document_loaders import TextLoader, CSVLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Set OpenAI API key
-openai.api_key = st.secrets["openai"]["api_key"]
+# Initialize OpenAI client
+client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 st.set_page_config(page_title="Team AI Chatbot", layout="wide")
 
@@ -129,12 +129,13 @@ if user_input:
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
-                response = openai.ChatCompletion.create(
+                response = client.chat.completions.create(
                     model="gpt-4",
                     messages=st.session_state.messages
                 )
-                reply = response.choices[0].message["content"]
+                reply = response.choices[0].message.content
             except Exception as e:
                 reply = f"⚠️ Error: {e}"
         st.markdown(reply)
         st.session_state.messages.append({"role": "assistant", "content": reply})
+
