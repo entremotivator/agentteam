@@ -1,4 +1,4 @@
 openai
-langchain
+langchain-community
 PyPDF2
 pandas
